@@ -15,9 +15,13 @@ public class BulletSpawner : MonoBehaviour
     void Start()
     {
         target = GameObject.Find("Player").GetComponent<Transform>();
+        time = 1;
     }
     void Update()
     {
+        if(spawnRateMax>1.5f)
+            spawnRateMax -= 0.00005f;
+
         Point.LookAt(target);
 
         time -= Time.deltaTime;
